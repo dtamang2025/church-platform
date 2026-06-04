@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple:       #7C3AED;
+  --purple-light: #A78BFA;
+  --purple-pale:  #EDE9FE;
+  --purple-dark:  #5B21B6;
+  --grad: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: #FAFAF9;
+  color: #1C1917;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D6D3D1; border-radius: 2px; }
+
+/* Gradient button */
+.btn-gradient {
+  background: var(--grad);
+  color: #fff;
+  border: none;
+  transition: opacity .15s, transform .15s;
+}
+.btn-gradient:hover { opacity: .92; transform: translateY(-1px); }
+.btn-gradient:active { transform: translateY(0); }
+
+/* Chord renderer */
+.lyric-block {
+  font-family: 'Courier New', Courier, monospace;
+  background: #F5F4F1;
+  border-radius: 10px;
+  padding: 20px 24px;
+  line-height: 2;
+  overflow-x: auto;
+}
+.lyric-line { display: inline-flex; flex-direction: column; align-items: flex-start; margin-right: 0; }
+.chord-above { font-size: 12px; font-weight: 700; color: var(--purple); min-height: 18px; line-height: 1.2; font-family: 'DM Sans', sans-serif; }
+.lyric-word { font-size: 15px; color: #1C1917; white-space: pre; }
+
+/* Fade in */
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+.fade-up { animation: fadeUp .25s ease forwards; }
