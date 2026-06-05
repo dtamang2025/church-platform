@@ -10,7 +10,9 @@ ALLOWED_HOSTS = config(
     'ALLOWED_HOSTS',
     default='localhost,127.0.0.1,church-platform-1-ixrk.onrender.com'
 ).split(',')
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://church-platform-1-ixrk.onrender.com"
+]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
