@@ -18,3 +18,8 @@ venv/
 db.sqlite3
 media/
 staticfiles/
+.env
+.venv
+__pycache__/
+*.pyc
+.DS_Store
