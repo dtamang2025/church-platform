@@ -6,11 +6,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-change-me-in-production')
 DEBUG = config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = config(
-    'ALLOWED_HOSTS',
-    default='localhost,127.0.0.1,church-platform-1-ixrk.onrender.com'
-).split(',')
+ALLOWED_HOSTS = [
+    'church-platform-1-ixrk.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+SECURE_SSL_REDIRECT = False
 CSRF_TRUSTED_ORIGINS = [
     "https://church-platform-1-ixrk.onrender.com"
 ]
