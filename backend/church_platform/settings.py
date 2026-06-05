@@ -59,13 +59,32 @@ TEMPLATES = [
     },
 ]
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
+DATABASE_URL = config("DATABASE_URL", default=None)
+
+if DATABASE_URL:
+    # Production (Render)
+    DATABASES = {
+        "default": dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=False
+        )
+    }
+else:
+    # Local development
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "church_db",
+            "USER": "church_user",
+            "PASSWORD": "StrongPassword123",
+            "HOST": "127.0.0.1",
+            "PORT": "5432",
+            "OPTIONS": {
+                "sslmode": "disable",
+            },
+        }
+    }
 
 AUTH_USER_MODEL = 'users.User'
 
