@@ -10,6 +10,7 @@ ALLOWED_HOSTS = config(
     'ALLOWED_HOSTS',
     default='localhost,127.0.0.1,church-platform-1-ixrk.onrender.com'
 ).split(',')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CSRF_TRUSTED_ORIGINS = [
     "https://church-platform-1-ixrk.onrender.com"
 ]
